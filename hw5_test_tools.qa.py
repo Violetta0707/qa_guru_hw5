@@ -21,9 +21,8 @@ def test_fill_practice_form():
 
     browser.element('[for="hobbies-checkbox-1"]').click()
 
-    browser.element('#uploadPicture').set_value(
-        str(__file__)
-        .replace('test.google_search.py', 'resources\\avatar.png')
+    browser.element('#uploadPicture').send_keys(
+        str(__file__).replace('test.google_search.py', 'resources\\avatar.png')
     )
 
     browser.element('#currentAddress').type('ул. Садовая, д. 1')
@@ -36,6 +35,7 @@ def test_fill_practice_form():
     browser.element('#submit').click()
 
     browser.element('.modal-header').should(have.text('Thanks for submitting the form'))
+    browser.element('.table').all('tr').should(have.exact_texts(
     browser.element('.table').should(have.text('Виолетта Новикова'))
     browser.element('.table').should(have.text('violet@example.com'))
     browser.element('.table').should(have.text('Female'))
