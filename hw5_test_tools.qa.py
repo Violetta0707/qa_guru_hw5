@@ -22,7 +22,8 @@ def test_fill_practice_form():
     browser.element('[for="hobbies-checkbox-1"]').click()
 
     browser.element('#uploadPicture').set_value(
-        str(__file__).replace('test_practice_form.py', 'resources/avatar.png')
+        str(__file__)
+        .replace('test.google_search.py', 'resources\\avatar.png')
     )
 
     browser.element('#currentAddress').type('ул. Садовая, д. 1')
